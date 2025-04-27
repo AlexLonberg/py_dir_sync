@@ -84,12 +84,7 @@ exclude = [".*", "*/.*"]
 include = ["*.py", "*.json", "*.md", "*.txt"]
 
 if __name__ == "__main__":
-    logging.basicConfig(
-        level=logging.INFO,  # Устанавливаем минимальный уровень для обработки (INFO и выше)
-        format="%(message)s",  # Формат вывода
-        # format="%(asctime)s - %(levelname)s - %(name)s - %(message)s",  # Формат вывода
-        # stream=sys.stdout # Раскомментируйте, если хотите выводить именно в stdout, а не stderr (по умолчанию)
-    )
+    logging.basicConfig(level=logging.INFO, format="%(message)s")
     logging.info(help)
     running = False
     src = ""
