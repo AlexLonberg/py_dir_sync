@@ -1,0 +1,99 @@
+{
+  "files.exclude": {
+    // "**/.git": true,
+    // "**/.venv": true,
+    // "**/__pycache__": true,
+  },
+  "search.exclude": {
+    "**/.git": true,
+    "**/.venv": true,
+    ".private/": true,
+    ".temp/": true,
+    ".pytest_cache/": true,
+    "**/__pycache__": true,
+    "**/py.typed": true,
+    ".editorconfig": true,
+    ".env": true,
+    ".gitignore": true,
+    "LICENSE.md": true,
+    "requirements.txt": true,
+    "requirements_dev.txt": true
+  },
+  "googleSearchContextMenu.items": {
+    "Python": {
+      "enabled": true
+    }
+  },
+  "cSpell.words": [
+    "fnmatch"
+  ],
+  "vsicons.associations.folders": [
+    {
+      "icon": "python",
+      "extensions": [
+        "py_dir_sync"
+      ],
+      "format": "svg"
+    }
+  ],
+  "[plaintext]": {
+    "files.trimTrailingWhitespace": false
+  },
+  "[txt]": {
+    "files.trimTrailingWhitespace": false
+  },
+  "[markdown]": {
+    "editor.rulers": [
+      88 // code
+    ]
+  },
+  "[python]": {
+    // black-formatter похоже не передает аргументы в black, который не поддерживает .editorconfig
+    // и может прочитать только файл *.toml, например pyproject.toml
+    // issues 25.07.2021 https://github.com/psf/black/issues/2401
+    // issues 19.06.2020 https://github.com/psf/black/issues/1511
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.tabSize": 4,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    },
+    "editor.formatOnType": true,
+    "editor.rulers": [
+      88, // python code 88
+      120 // comment 120
+    ]
+  },
+  "black-formatter.args": [
+    // Это значение используется по умолчанию в --line-length
+    // https://black.readthedocs.io/en/stable/usage_and_configuration/the_basics.html#l-line-length
+    "--line-length=88"
+  ],
+  "isort.args": [
+    "--profile",
+    "black"
+  ],
+  "isort.check": true,
+  "isort.severity": {
+    "W": "Warning",
+    "E": "Hint"
+  },
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.fixAll": [
+    "source.unusedImports"
+  ],
+  "python.terminal.activateEnvironment": true,
+  "terminal.integrated.env.windows": {
+    "PYTHONPATH": "${workspaceFolder}"
+  },
+  "python.envFile": "${workspaceFolder}/.env",
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv",
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestEnabled": true,
+  "python.testing.pytestArgs": [
+    "--cov=./py_dir_sync"
+  ],
+  // Встроенная функция покрытия https://code.visualstudio.com/docs/python/testing#_run-tests-with-coverage
+  "python.experiments.optInto": [
+    "pythonTestAdapter"
+  ]
+}
